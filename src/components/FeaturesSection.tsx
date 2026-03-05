@@ -44,7 +44,7 @@ const FeaturesSection = () => (
         </div>
         <div>
           <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">📅 Créneaux suggérés</div>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {[
               { day: "Lun", time: "08h30" },
               { day: "Mar ★", time: "18h00", active: true },

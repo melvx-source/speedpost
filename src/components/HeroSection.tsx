@@ -1,44 +1,44 @@
 const HeroSection = () => (
-  <section className="relative z-[1] min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-32 pb-16 overflow-hidden">
+  <section className="relative z-[1] min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-16 pt-24 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
     {/* Eyebrow */}
-    <div className="inline-flex items-center gap-2 bg-glass border border-border rounded-full px-4 py-1.5 text-xs font-medium text-yellow tracking-widest uppercase w-fit mb-6" style={{ animation: 'fadeUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both' }}>
+    <div className="inline-flex items-center gap-2 bg-glass border border-border rounded-full px-3 sm:px-4 py-1.5 text-[0.65rem] sm:text-xs font-medium text-yellow tracking-widest uppercase w-fit mb-4 sm:mb-6" style={{ animation: 'fadeUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both' }}>
       <span className="w-1.5 h-1.5 rounded-full bg-yellow" style={{ animation: 'pulse 2s infinite' }} />
       Powered by IA · Instagram Scheduling
     </div>
 
     {/* Title */}
-    <h1 className="font-display font-extrabold text-[clamp(3rem,7vw,6.5rem)] leading-[1] tracking-tighter max-w-[900px]" style={{ animation: 'fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) both' }}>
+    <h1 className="font-display font-extrabold text-[clamp(2.2rem,7vw,6.5rem)] leading-[1.05] tracking-tighter max-w-[900px]" style={{ animation: 'fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) both' }}>
       <span className="text-gradient-warm block">Programmez vos posts</span>
       <span className="text-outline block">Instagram</span>
       en quelques clics.
     </h1>
 
-    <p className="text-muted-foreground text-lg max-w-[520px] mt-6 font-light leading-relaxed" style={{ animation: 'fadeUp 0.8s 0.7s cubic-bezier(0.16,1,0.3,1) both' }}>
+    <p className="text-muted-foreground text-base sm:text-lg max-w-[520px] mt-4 sm:mt-6 font-light leading-relaxed" style={{ animation: 'fadeUp 0.8s 0.7s cubic-bezier(0.16,1,0.3,1) both' }}>
       Importez vos photos, laissez l'IA rédiger vos descriptions, hashtags et appliquer vos filtres — puis planifiez la publication automatique.
     </p>
 
     {/* Actions */}
-    <div className="flex items-center gap-4 mt-8" style={{ animation: 'fadeUp 0.8s 0.9s cubic-bezier(0.16,1,0.3,1) both' }}>
-      <a href="/login" className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-7 py-3.5 rounded-xl font-medium shadow-glow hover:-translate-y-1 hover:shadow-[0_16px_48px_hsl(349_100%_65%/0.5)] transition-all">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-6 sm:mt-8" style={{ animation: 'fadeUp 0.8s 0.9s cubic-bezier(0.16,1,0.3,1) both' }}>
+      <a href="/login" className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-primary-foreground px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-medium shadow-glow hover:-translate-y-1 hover:shadow-[0_16px_48px_hsl(349_100%_65%/0.5)] transition-all text-sm sm:text-base">
         🚀 Commencer gratuitement
       </a>
-      <a href="/#tarifs" className="inline-flex items-center gap-2 bg-glass border border-border text-foreground px-7 py-3.5 rounded-xl backdrop-blur-lg hover:bg-[hsl(0_0%_100%/0.1)] hover:-translate-y-0.5 transition-all">
+      <a href="/#tarifs" className="inline-flex items-center justify-center gap-2 bg-glass border border-border text-foreground px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl backdrop-blur-lg hover:bg-[hsl(0_0%_100%/0.1)] hover:-translate-y-0.5 transition-all text-sm sm:text-base">
         ▶ Voir les tarifs
       </a>
     </div>
 
     {/* Stats */}
-    <div className="flex items-center gap-8 mt-12" style={{ animation: 'fadeUp 0.8s 1.1s cubic-bezier(0.16,1,0.3,1) both' }}>
+    <div className="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 sm:mt-12" style={{ animation: 'fadeUp 0.8s 1.1s cubic-bezier(0.16,1,0.3,1) both' }}>
       {[
         { number: "+2 400", label: "Posts programmés" },
         { number: "98%", label: "Taux de satisfaction" },
         { number: "3x", label: "Plus rapide qu'avant" },
       ].map((stat, i) => (
-        <div key={stat.label} className="flex items-center gap-8">
-          {i > 0 && <div className="w-px h-10 bg-border" />}
+        <div key={stat.label} className="flex items-center gap-4 sm:gap-8">
+          {i > 0 && <div className="w-px h-8 sm:h-10 bg-border" />}
           <div className="flex flex-col">
-            <span className="font-display font-bold text-3xl text-gradient-primary">{stat.number}</span>
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</span>
+            <span className="font-display font-bold text-2xl sm:text-3xl text-gradient-primary">{stat.number}</span>
+            <span className="text-[0.65rem] sm:text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</span>
           </div>
         </div>
       ))}

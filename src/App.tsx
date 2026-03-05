@@ -10,6 +10,7 @@ import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import SchedulePost from "./pages/SchedulePost";
+import CalendarPage from "./pages/CalendarPage";
 import ResetPassword from "./pages/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/dashboard/programmer" element={<ProtectedRoute><SchedulePost /></ProtectedRoute>} />
+            <Route path="/dashboard/calendrier" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

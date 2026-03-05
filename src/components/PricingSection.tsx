@@ -26,7 +26,7 @@ const plans = [
 ];
 
 const PricingSection = () => (
-  <section className="relative z-[1] px-6 lg:px-16 pb-24">
+  <section id="tarifs" className="relative z-[1] px-6 lg:px-16 pb-24">
     <div className="text-xs uppercase tracking-[0.12em] text-coral font-semibold mb-3">▸ Tarifs</div>
     <h2 className="font-display font-extrabold text-[clamp(2rem,4vw,3.5rem)] tracking-tight leading-[1.1] mb-3">Simple, transparent,<br />sans surprise.</h2>
     <p className="text-muted-foreground max-w-[500px] font-light">Choisissez le plan qui correspond à votre volume. Sans engagement, résiliable à tout moment.</p>
@@ -47,7 +47,7 @@ const PricingSection = () => (
               </li>
             ))}
           </ul>
-          <a href="#" className={`block text-center mt-7 py-3 rounded-xl font-medium text-sm transition-all hover:-translate-y-0.5 ${plan.featured ? 'bg-gradient-primary text-primary-foreground shadow-glow shadow-glow-hover' : 'border border-border text-foreground hover:border-[hsl(0_0%_100%/0.3)]'}`}>
+          <a href={plan.name === "Agency" ? "/contact" : "/login"} className={`block text-center mt-7 py-3 rounded-xl font-medium text-sm transition-all hover:-translate-y-0.5 ${plan.featured ? 'bg-gradient-primary text-primary-foreground shadow-glow shadow-glow-hover' : 'border border-border text-foreground hover:border-[hsl(0_0%_100%/0.3)]'}`}>
             {plan.name === "Agency" ? "Contacter l'équipe →" : "Commencer →"}
           </a>
         </div>

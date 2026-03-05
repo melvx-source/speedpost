@@ -19,11 +19,11 @@ const HeroSection = () => (
 
     {/* Actions */}
     <div className="flex items-center gap-4 mt-8" style={{ animation: 'fadeUp 0.8s 0.9s cubic-bezier(0.16,1,0.3,1) both' }}>
-      <a href="#" className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-7 py-3.5 rounded-xl font-medium shadow-glow hover:-translate-y-1 hover:shadow-[0_16px_48px_hsl(349_100%_65%/0.5)] transition-all">
+      <a href="/login" className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-7 py-3.5 rounded-xl font-medium shadow-glow hover:-translate-y-1 hover:shadow-[0_16px_48px_hsl(349_100%_65%/0.5)] transition-all">
         🚀 Commencer gratuitement
       </a>
-      <a href="#" className="inline-flex items-center gap-2 bg-glass border border-border text-foreground px-7 py-3.5 rounded-xl backdrop-blur-lg hover:bg-[hsl(0_0%_100%/0.1)] hover:-translate-y-0.5 transition-all">
-        ▶ Voir la démo
+      <a href="/#tarifs" className="inline-flex items-center gap-2 bg-glass border border-border text-foreground px-7 py-3.5 rounded-xl backdrop-blur-lg hover:bg-[hsl(0_0%_100%/0.1)] hover:-translate-y-0.5 transition-all">
+        ▶ Voir les tarifs
       </a>
     </div>
 

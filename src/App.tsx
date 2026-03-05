@@ -8,7 +8,9 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 import ResetPassword from "./pages/ResetPassword";
+import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +27,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/comment-ca-fonctionne" element={<HowItWorks />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

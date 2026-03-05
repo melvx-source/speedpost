@@ -11,7 +11,7 @@ const Navbar = () => (
         </li>
       ))}
       <li>
-        <a href="#" className="bg-gradient-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-medium shadow-glow hover:-translate-y-0.5 transition-transform">
+        <a href="/login" className="bg-gradient-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-medium shadow-glow hover:-translate-y-0.5 transition-transform">
           Connexion →
         </a>
       </li>

@@ -2,6 +2,7 @@ import AdminLayout from "@/components/AdminLayout";
 import { CalendarClock, CheckCircle2, TrendingUp, Clock, ArrowUpRight, ArrowDownRight, Sparkles, ExternalLink } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import { useState } from "react";
+import InstagramAccountsCard from "@/components/dashboard/InstagramAccountsCard";
 
 /* ─── MOCK DATA ─── */
 const kpis = [
@@ -42,12 +43,6 @@ const chartData90 = Array.from({ length: 12 }, (_, i) => ({
   likes: Math.floor(Math.random() * 500 + 200),
   comments: Math.floor(Math.random() * 100 + 30),
 }));
-
-const connectedAccounts = [
-  { username: "@studio_mode", followers: "12.4K", connected: true },
-  { username: "@lifestyle_daily", followers: "8.2K", connected: true },
-  { username: "@brand_agency", followers: "3.1K", connected: false },
-];
 
 const aiSuggestions = [
   { icon: "📈", text: "Vos posts du mardi à 18h obtiennent 2x plus d'engagement." },
@@ -175,32 +170,8 @@ const Dashboard = () => {
 
         {/* ROW 4: Accounts + AI */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* Connected accounts */}
-          <div className="bg-card border border-border rounded-2xl p-5">
-            <h2 className="font-display font-bold text-foreground mb-4">Comptes Instagram connectés</h2>
-            <div className="space-y-3">
-              {connectedAccounts.map((acc) => (
-                <div key={acc.username} className="flex items-center gap-3 p-3 rounded-xl bg-secondary/50">
-                  <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground text-sm font-bold flex-shrink-0">
-                    {acc.username[1].toUpperCase()}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-foreground text-sm font-medium">{acc.username}</p>
-                    <p className="text-muted-foreground text-xs">{acc.followers} abonnés</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className={`w-2 h-2 rounded-full ${acc.connected ? "bg-green-500" : "bg-destructive"}`} />
-                    {!acc.connected && (
-                      <button className="text-xs text-primary hover:underline font-medium">Reconnecter</button>
-                    )}
-                  </div>
-                </div>
-              ))}
-              <button className="w-full py-2.5 rounded-xl border border-dashed border-border text-muted-foreground text-sm hover:text-foreground hover:border-primary/30 transition-all">
-                ➕ Ajouter un compte
-              </button>
-            </div>
-          </div>
+          {/* Connected accounts — real data */}
+          <InstagramAccountsCard />
 
           {/* AI Suggestions */}
           <div className="bg-card border border-border rounded-2xl p-5">

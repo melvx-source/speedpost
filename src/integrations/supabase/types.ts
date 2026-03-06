@@ -14,7 +14,136 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      instagram_accounts: {
+        Row: {
+          access_token: string
+          created_at: string
+          followers_count: number | null
+          id: string
+          instagram_user_id: string
+          profile_picture_url: string | null
+          token_expires_at: string
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          access_token: string
+          created_at?: string
+          followers_count?: number | null
+          id?: string
+          instagram_user_id: string
+          profile_picture_url?: string | null
+          token_expires_at: string
+          updated_at?: string
+          user_id: string
+          username: string
+        }
+        Update: {
+          access_token?: string
+          created_at?: string
+          followers_count?: number | null
+          id?: string
+          instagram_user_id?: string
+          profile_picture_url?: string | null
+          token_expires_at?: string
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      post_analytics: {
+        Row: {
+          comments_count: number | null
+          fetched_at: string
+          id: string
+          impressions: number | null
+          likes_count: number | null
+          reach: number | null
+          scheduled_post_id: string
+        }
+        Insert: {
+          comments_count?: number | null
+          fetched_at?: string
+          id?: string
+          impressions?: number | null
+          likes_count?: number | null
+          reach?: number | null
+          scheduled_post_id: string
+        }
+        Update: {
+          comments_count?: number | null
+          fetched_at?: string
+          id?: string
+          impressions?: number | null
+          likes_count?: number | null
+          reach?: number | null
+          scheduled_post_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "post_analytics_scheduled_post_id_fkey"
+            columns: ["scheduled_post_id"]
+            isOneToOne: false
+            referencedRelation: "scheduled_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scheduled_posts: {
+        Row: {
+          caption: string | null
+          created_at: string
+          hashtags: string[] | null
+          id: string
+          image_urls: string[]
+          instagram_account_id: string
+          instagram_post_id: string | null
+          post_type: string
+          scheduled_at: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          image_urls?: string[]
+          instagram_account_id: string
+          instagram_post_id?: string | null
+          post_type?: string
+          scheduled_at: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          image_urls?: string[]
+          instagram_account_id?: string
+          instagram_post_id?: string | null
+          post_type?: string
+          scheduled_at?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scheduled_posts_instagram_account_id_fkey"
+            columns: ["instagram_account_id"]
+            isOneToOne: false
+            referencedRelation: "instagram_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

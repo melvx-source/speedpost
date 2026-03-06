@@ -14,6 +14,7 @@ import CalendarPage from "./pages/CalendarPage";
 import StatsPage from "./pages/StatsPage";
 import ResetPassword from "./pages/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
+import InstagramCallback from "./pages/InstagramCallback";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/dashboard/programmer" element={<ProtectedRoute><SchedulePost /></ProtectedRoute>} />
             <Route path="/dashboard/calendrier" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
             <Route path="/dashboard/statistiques" element={<ProtectedRoute><StatsPage /></ProtectedRoute>} />
+            <Route path="/auth/instagram/callback" element={<ProtectedRoute><InstagramCallback /></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

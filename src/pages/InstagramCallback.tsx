@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { META_APP_ID } from "@/config/instagram";
 import { Loader2, CheckCircle2, XCircle } from "lucide-react";
-
-const META_APP_ID = import.meta.env.VITE_META_APP_ID || "";
 
 const InstagramCallback = () => {
   const [searchParams] = useSearchParams();
@@ -61,7 +60,7 @@ const InstagramCallback = () => {
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center space-y-4">
         {status === "loading" && <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto" />}
-        {status === "success" && <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto" />}
+        {status === "success" && <CheckCircle2 className="w-12 h-12 text-primary mx-auto" />}
         {status === "error" && <XCircle className="w-12 h-12 text-destructive mx-auto" />}
         <p className="text-foreground font-medium">{message}</p>
         {status === "error" && (

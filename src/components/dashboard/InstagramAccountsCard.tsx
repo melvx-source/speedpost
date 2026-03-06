@@ -4,10 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Instagram, Loader2, Trash2, AlertTriangle } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { toast } from "sonner";
-
-const META_APP_ID = import.meta.env.VITE_META_APP_ID || "";
-const REDIRECT_URI = typeof window !== "undefined" ? `${window.location.origin}/auth/instagram/callback` : "";
-const OAUTH_URL = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${META_APP_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=instagram_basic,instagram_content_publish,instagram_manage_insights&response_type=code`;
+import { getInstagramOAuthUrl } from "@/config/instagram";
 
 interface InstagramAccount {
   id: string;
@@ -56,6 +53,8 @@ const InstagramAccountsCard = () => {
 
   const isTokenExpired = (expiresAt: string) => new Date(expiresAt) < new Date();
 
+  const expiredCount = accounts.filter((a) => isTokenExpired(a.token_expires_at)).length;
+
   return (
     <div className="bg-card border border-border rounded-2xl p-5">
       <div className="flex items-center gap-2 mb-4">
@@ -77,7 +76,7 @@ const InstagramAccountsCard = () => {
                   {acc.profile_picture_url ? (
                     <AvatarImage src={acc.profile_picture_url} alt={acc.username} />
                   ) : null}
-                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground text-sm font-bold">
+                  <AvatarFallback className="bg-primary text-primary-foreground text-sm font-bold">
                     {acc.username[0]?.toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
@@ -89,12 +88,12 @@ const InstagramAccountsCard = () => {
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {expired ? (
-                    <span className="flex items-center gap-1 text-xs text-yellow-400">
+                    <span className="flex items-center gap-1 text-xs text-destructive">
                       <AlertTriangle className="w-3.5 h-3.5" /> Token expiré
                     </span>
                   ) : (
-                    <span className="flex items-center gap-1 text-xs text-green-400">
-                      <span className="w-2 h-2 rounded-full bg-green-500" /> Connecté
+                    <span className="flex items-center gap-1 text-xs text-primary">
+                      <span className="w-2 h-2 rounded-full bg-primary" /> Connecté
                     </span>
                   )}
                   <button
@@ -110,28 +109,22 @@ const InstagramAccountsCard = () => {
           })}
 
           <a
-            href={OAUTH_URL}
+            href={getInstagramOAuthUrl()}
             className="w-full py-2.5 rounded-xl border border-dashed border-border text-muted-foreground text-sm hover:text-foreground hover:border-primary/30 transition-all flex items-center justify-center gap-2"
           >
             <Instagram className="w-4 h-4" />
             Connecter un compte Instagram
           </a>
 
-          {expired_accounts_note(accounts)}
+          {expiredCount > 0 && (
+            <p className="text-xs text-destructive/80 mt-2">
+              ⚠️ {expiredCount} compte(s) avec token expiré. Reconnectez-les pour continuer à publier.
+            </p>
+          )}
         </div>
       )}
     </div>
   );
 };
-
-function expired_accounts_note(accounts: InstagramAccount[]) {
-  const expired = accounts.filter((a) => new Date(a.token_expires_at) < new Date());
-  if (expired.length === 0) return null;
-  return (
-    <p className="text-xs text-yellow-400/80 mt-2">
-      ⚠️ {expired.length} compte(s) avec token expiré. Reconnectez-les pour continuer à publier.
-    </p>
-  );
-}
 
 export default InstagramAccountsCard;

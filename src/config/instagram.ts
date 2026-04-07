@@ -3,9 +3,7 @@
 export const META_APP_ID = "1613210220002694";
 
 // OAuth redirect URI (auto-generated)
-export const INSTAGRAM_REDIRECT_URI = typeof window !== "undefined"
-  ? `${window.location.origin}/auth/instagram/callback`
-  : "";
+export const INSTAGRAM_REDIRECT_URI = "https://speedpost.lovable.app/auth/instagram/callback";
 
 // OAuth scopes
 export const INSTAGRAM_SCOPES = "instagram_basic,instagram_content_publish,instagram_manage_insights";

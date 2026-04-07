@@ -1,6 +1,6 @@
 // Meta (Facebook/Instagram) API Configuration
 // Replace with your Meta App ID from https://developers.facebook.com/apps/
-export const META_APP_ID = "";
+export const META_APP_ID = "1613210220002694";
 
 // OAuth redirect URI (auto-generated)
 export const INSTAGRAM_REDIRECT_URI = typeof window !== "undefined"

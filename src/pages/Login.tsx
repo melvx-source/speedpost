@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Eye, EyeOff, Mail, Lock, User, Building2, X } from "lucide-react";
+import { getInstagramOAuthUrl } from "@/config/instagram";
 import { toast } from "sonner";
 
 const Login = () => {

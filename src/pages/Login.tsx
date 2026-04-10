@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Eye, EyeOff, Mail, Lock, User, Building2, X } from "lucide-react";
+import { getInstagramOAuthUrl } from "@/config/instagram";
 import { toast } from "sonner";
 
 const Login = () => {
@@ -156,10 +157,10 @@ const LoginForm = ({ onSwitch }: { onSwitch: () => void }) => {
         <div className="flex-1 h-px bg-border" />
       </div>
 
-      <button className="w-full py-3 rounded-xl border border-border bg-secondary text-foreground font-medium text-sm hover:bg-secondary/80 transition-colors flex items-center justify-center gap-2">
+      <a href={getInstagramOAuthUrl()} className="w-full py-3 rounded-xl border border-border bg-secondary text-foreground font-medium text-sm hover:bg-secondary/80 transition-colors flex items-center justify-center gap-2">
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/></svg>
         Continuer avec Instagram
-      </button>
+      </a>
 
       <p className="text-center text-sm text-muted-foreground mt-6">
         Pas encore de compte ?{" "}
@@ -304,10 +305,10 @@ const SignupForm = ({ onSwitch }: { onSwitch: () => void }) => {
         <div className="flex-1 h-px bg-border" />
       </div>
 
-      <button className="w-full py-3 rounded-xl border border-border bg-secondary text-foreground font-medium text-sm hover:bg-secondary/80 transition-colors flex items-center justify-center gap-2">
+      <a href={getInstagramOAuthUrl()} className="w-full py-3 rounded-xl border border-border bg-secondary text-foreground font-medium text-sm hover:bg-secondary/80 transition-colors flex items-center justify-center gap-2">
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/></svg>
         S'inscrire avec Instagram
-      </button>
+      </a>
 
       <p className="text-center text-sm text-muted-foreground mt-6">
         Déjà un compte ?{" "}
